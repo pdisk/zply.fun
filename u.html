@@ -46,13 +46,13 @@
         var midnight = new Date(date.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
         midnight.setHours(24, 0, 0, 0);
         // document.cookie = `uid=${uid}#${sdata}; expires=${midnight.toGMTString()}; path=/;`
-        // document.cookie = `uid=${uid}#${sdata}; expires=${midnight.toGMTString()}; domain=zdisk.fun; ;path=/;`
+        // document.cookie = `uid=${uid}#${sdata}; expires=${midnight.toGMTString()}; domain=zply.fun; ;path=/;`
         document.cookie = `ip_address=${ip_address}; expires=${midnight.toGMTString()}; path=/;`
-        document.cookie = `ip_address=${ip_address}; expires=${midnight.toGMTString()}; domain=zdisk.fun; path=/;`
+        document.cookie = `ip_address=${ip_address}; expires=${midnight.toGMTString()}; domain=zply.fun; path=/;`
         document.cookie = `count=${count}; expires=${midnight.toGMTString()}; path=/;`
-        document.cookie = `count=${count}; expires=${midnight.toGMTString()}; domain=zdisk.fun; path=/;`
+        document.cookie = `count=${count}; expires=${midnight.toGMTString()}; domain=zply.fun; path=/;`
         document.cookie = `recent=${suid}; expires=${midnight.toGMTString()}; path=/;`
-        document.cookie = `recent=${suid}; expires=${midnight.toGMTString()}; domain=zdisk.fun; path=/;`
+        document.cookie = `recent=${suid}; expires=${midnight.toGMTString()}; domain=zply.fun; path=/;`
         console.log("Cookies Set To: " + document.cookie)
     }
 
