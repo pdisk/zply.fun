@@ -253,7 +253,7 @@
 	}
 
 	function vlcplay(slink) {
-		window.location.href = `vlc://${slink}`
+		window.location.href = `vlc://${slink.replace(/https?:\/\//, '')}`;
 		playstore("org.videolan.vlc")
 	}
 
