@@ -133,13 +133,15 @@
 		} else if(mid == undefined && type == "m") {
 			mid = tuid
 			tglink = `tg://resolve?domain=Files_GiverBot&start=${paramv}`
-			slink = `https://${domain}/1749696923/${mid}/file.mkv`
+			slink = `https://${domain}/stream/1749696923/${mid}/file.mkv`
+			dlink = `https://${domain}/download/1749696923/${mid}/file.mkv`
 			assingbtns(slink, tglink, "Zdisk File")
 			renderPage("Zdisk File", "", type = type)
 			return
 		}
 		tglink = `tg://resolve?domain=Files_GiverBot&start=${paramv}`
-		slink = `https://${domain}/${cid.toString().replace("-100", "")}/${mid}/${fn}`
+		slink = `https://${domain}/stream/${cid.toString().replace("-100", "")}/${mid}/${fn}`
+		slink = `https://${domain}/download/${cid.toString().replace("-100", "")}/${mid}/${fn}`
 		renderPage(fn, siz, type = type)
 		assingbtns(slink, tglink, fn)
 		getPoster(fn)
