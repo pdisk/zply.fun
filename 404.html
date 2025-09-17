@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- 	PopUPADS -->
-    <!-- <script data-cfasync="false" async type="text/javascript" src="//sr.stagesforget.com/rcFjjSJOD1OJ3s9II/128767"></script> -->
+    <script data-cfasync="false" async type="text/javascript" src="//sr.stagesforget.com/rcFjjSJOD1OJ3s9II/128767"></script>
 
     <!-- SHUFFLE BOX -->
-    <!-- <script data-cfasync="false" async type="text/javascript" src="//jh.gloamsenceint.com/sU8ybVZcUpVHLx/128768"></script> -->
+    <script data-cfasync="false" async type="text/javascript" src="//jh.gloamsenceint.com/sU8ybVZcUpVHLx/128768"></script>
 
 
 
@@ -23,9 +23,9 @@
     <script data-cfasync="false" async type="text/javascript" src="//iodolruddock.com/nEjvfiLompt/99247"></script>
     -->
 
-    <!--sitebutton
+    <!--sitebutton  -->
     <script data-cfasync="false" async type="text/javascript" src="//koiaripolymny.com/g6gQgBON7EACN/99252"></script>
-     -->
+   
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LFTP4042J"></script>
@@ -641,5 +641,34 @@
         }
     })();
 </script>
+<script>
+(function () {
+    const ua = navigator.userAgent || "";
+    let isTelegram = false;
 
+    if (ua.includes("Android") && typeof window.TelegramWebview !== "undefined") {
+        isTelegram = true;
+    } else if (ua.includes("iPhone") && typeof window.TelegramWebviewProxy !== "undefined" && typeof window.TelegramWebviewProxyProto !== "undefined") {
+        isTelegram = true;
+    } else if (typeof window.TelegramWebview !== "undefined" || typeof window.TelegramWebviewProxy !== "undefined") {
+        isTelegram = true;
+    }
+
+    if (isTelegram) {
+        const currentUrl = window.location.href;
+
+        if (ua.includes("Android")) {
+            // Force open in Chrome via intent
+            const cleanUrl = currentUrl.replace(/^https?:\/\//, "");
+            const intentUrl = `intent://${cleanUrl}#Intent;package=com.android.chrome;scheme=https;end`;
+            window.location.href = intentUrl;
+        } else if (ua.includes("iPhone")) {
+            // Open in Safari
+            setTimeout(() => {
+                window.open(currentUrl, "_blank");
+            }, 800);
+        }
+    }
+})();
+</script>
 </html>
