@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Zk_bots</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- 	PopUPADS -->
+    <!-- <script data-cfasync="false" async type="text/javascript" src="//sr.stagesforget.com/rcFjjSJOD1OJ3s9II/128767"></script> -->
+
+    <!-- SHUFFLE BOX -->
+    <!-- <script data-cfasync="false" async type="text/javascript" src="//jh.gloamsenceint.com/sU8ybVZcUpVHLx/128768"></script> -->
+
+
+
+    <!--interstitial
+    <script data-cfasync="false" async type="text/javascript" src="//iodolruddock.com/nEjvfiLompt/99247"></script>
+    -->
+
+    <!--sitebutton  -->
+    <!-- <script data-cfasync="false" async type="text/javascript" src="//koiaripolymny.com/g6gQgBON7EACN/99252"></script> -->
+   
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LFTP4042J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4LFTP4042J');
+    </script>
+
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Zk_bots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LFTP4042J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-4LFTP4042J');
+    </script>
+</head>
+
+<style>
+    :root {
+        --color-white: #ffffff;
+        --color-dark: #201e1e;
+        --color-bg: #121212;
+        --tooth-pos: 6px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Varela Round', sans-serif;
+        padding: 10px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-bg);
+        overflow-x: hidden;
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        gap: 15px;
+        min-height: 100vh;
+    }
+
+    /* Tutorial Section */
+    .tutorialdiv {
+        display: none;
+        border: solid rgba(255, 255, 255, 0.3) 1px;
+        padding: 15px;
+        border-radius: 15px;
+        color: white;
+        width: 100%;
+        max-width: 90vw;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+        margin-bottom: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .tutorialdiv p {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+        flex-shrink: 0;
+    }
+
+    /* Video Container */
+    .video-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-height: calc(100vh - 200px); /* Reserve space for text and button */
+        margin: 10px 0;
+    }
+
+    /* Video Player Container */
+    .player {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        width: 100%;
+        max-width: min(90vw, calc((100vh - 200px) * 9/16));
+        aspect-ratio: 9/16;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Play icon overlay */
+    .icon {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        z-index: 10;
+    }
+
+    .icon svg {
+        width: min(80px, 15vw);
+        height: min(80px, 15vw);
+        fill: rgba(255, 255, 255, 0.85);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.7));
+    }
+
+    .icon:hover {
+        transform: scale(1.1);
+    }
+
+    /* Tutorial Video Styling */
+    .tutorialvid {
+        display: none;
+        width: 100%;
+        max-width: min(90vw, calc((100vh - 200px) * 9/16));
+        aspect-ratio: 9/16;
+        border-radius: 15px;
+        object-fit: contain;
+        background: #000;
+    }
+
+    .tutorialvid.playing {
+        display: block;
+    }
+
+    .errorloc {
+        font-size: 10px;
+        width: 100%;
+        color: #0b8684;
+        border: solid rgba(255, 255, 255, 0.464) 1px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .get-link {
+        animation: zoomIn;
+        animation-duration: 0.5s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 15px 25px;
+        white-space: nowrap;
+        color: rgb(0, 0, 0);
+        background: #62e8f2;
+        border-radius: 10px;
+        margin: 10px 0 20px 0;
+        box-shadow: rgba(22, 86, 109, 0.25) 0px 54px 55px, rgba(15, 94, 212, 0.12) 0px -12px 30px, rgba(15, 150, 78, 0.12) 0px 4px 6px, rgba(80, 103, 113, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        min-height: 60px;
+        flex-shrink: 0;
+        position: sticky;
+        bottom: 20px;
+        z-index: 100;
+    }
+
+    .get-link:hover {
+        background: rgb(28, 125, 128);
+        border: solid #09e2df;
+    }
+
+    .text {
+        animation: fadeInLeft;
+        animation-duration: 0.5s;
+        transition: all 0.3s;
+        font-size: 20px;
+    }
+
+    .text2 {
+        position: relative;
+        animation: pulse;
+        animation-duration: 2s;
+        transition: all 0.3s;
+        font-size: 0;
+    }
+
+    .loader {
+        margin-top: 5px;
+        margin-left: 8px;
+    }
+
+    .loader,
+    .loader:before,
+    .loader:after {
+        width: 6px;
+        aspect-ratio: .5;
+        display: grid;
+        background: radial-gradient(#000 68%, #0000 72%) center/100% 50% no-repeat;
+        animation: load 2s infinite linear calc(var(--_s, 0)*.4s);
+        transform: translate(calc(var(--_s, 0)*150%));
+    }
+
+    .loader:before,
+    .loader:after {
+        content: "";
+        grid-area: 1/1;
+    }
+
+    .loader:before {
+        --_s: -1
+    }
+
+    .loader:after {
+        --_s: 1
+    }
+
+    @keyframes load {
+        20% {
+            background-position: top
+        }
+        40% {
+            background-position: bottom
+        }
+        60% {
+            background-position: center
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    cokerror, error {
+        display: none;
+        font-size: 15px;
+        color: #62e8f2;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    error {
+        font-size: 25px;
+    }
+
+    support {
+        font-size: 28px;
+        color: #BB86FC;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 480px) {
+        body {
+            padding: 5px;
+        }
+
+        .wrapper {
+            max-width: 95%;
+            gap: 10px;
+        }
+
+        .tutorialdiv {
+            max-width: 95vw;
+            padding: 10px;
+        }
+
+        .player, .tutorialvid {
+            max-width: min(95vw, calc((100vh - 180px) * 9/16));
+        }
+
+        .video-container {
+            max-height: calc(100vh - 180px);
+        }
+
+        .get-link {
+            font-size: 16px;
+            padding: 12px 20px;
+            margin: 5px 0 15px 0;
+        }
+
+        .text {
+            font-size: 18px;
+        }
+
+        .tutorialdiv p {
+            font-size: 14px;
+        }
+
+        .icon svg {
+            width: min(70px, 12vw);
+            height: min(70px, 12vw);
+        }
+    }
+
+    @media (max-width: 320px) {
+        .player, .tutorialvid {
+            max-width: min(95vw, calc((100vh - 160px) * 9/16));
+        }
+
+        .video-container {
+            max-height: calc(100vh - 160px);
+        }
+
+        .get-link {
+            font-size: 14px;
+            padding: 10px 15px;
+        }
+
+        .text {
+            font-size: 16px;
+        }
+
+        .icon svg {
+            width: min(60px, 10vw);
+            height: min(60px, 10vw);
+        }
+    }
+
+    @media (orientation: landscape) and (max-height: 600px) {
+        .player, .tutorialvid {
+            max-width: min(50vw, calc((100vh - 120px) * 9/16));
+        }
+
+        .video-container {
+            max-height: calc(100vh - 120px);
+        }
+
+        .tutorialdiv {
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tutorialdiv p {
+            margin: 0;
+            flex: 1;
+        }
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+
+        <div>
+            <!-- <script data-cfasync="false" async type="text/javascript"
+                src="//judosllyn.com/tqjsj890aUL6PtE4/70048"></script> -->
+        </div>
+        <center>
+            <div class="tutorialdiv" style="display: none;">
+                <p style="font-size: 15px;color:white;">❔How to Use Bot Tutorial Video ❔</p>
+                <div class="player" id="player" style='background-color: #000; margin-bottom:10px;margin-top: 10px;'>
+                    <div class="icon" id="playicon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM10.622 8.415a.4.4 0 0 0-.622.332v6.506a.4.4 0 0 0 .622.332l4.879-3.252a.4.4 0 0 0 0-.666l-4.88-3.252z" />
+                        </svg>
+                    </div>
+                </div>
+                <video class="tutorialvid" src="" style="display: none;" controls></video>
+                <p style="color:white">Tip: Refer Friends & Get Free Premium (No Ads🍿)</p>
+            </div>
+        </center>
+        <div class="get-link">
+            <span class="text" style="font-size:30px">Generating Link</span>
+            <span class="loader"></span>
+            <span class="text2">Continue ➡️</span>
+        </div>
+
+        <cokerror style="display:none;font-size:15px;color:#62e8f2">Turn On Cookies: Report
+            <a href="tg://resolve?domain=zk_bots">
+                <support style="font-size:28px;color: #BB86FC;">&nbsp;@ZK_Bots</support>
+            </a>
+        </cokerror>
+        <error style="display:none;font-size:25px;color:#62e8f2">Error Occured report
+            <a href="tg://resolve?domain=zk_bots">
+                <support style="font-size:28px;color: #BB86FC;">&nbsp;@ZK_Bots</support>
+            </a>
+        </error>
+    </div>
+
+</body>
+
+<script>
+    (async function () {
+        const loc = document.location.href;
+        const uid = loc.split("/").slice(-1)[0];
+        const cookies = getCookies();
+        console.log(cookies);
+
+        await main();
+
+        // -------------------- MAIN -------------------- //
+        async function main() {
+            const ip_address = await getIp();
+            const paramv = parseParams(loc);
+            const { botid, chat, user, sdom, sapi, uid_type } = paramv;
+            const uid = decryptUid(paramv.uid);
+
+            // Validate required params
+            if ([botid, chat, user, sdom, sapi].includes(undefined)) {
+                showError();
+                return;
+            }
+
+            console.log(paramv);
+
+            let count = parseInt(cookies.count) || 0;
+            const link = buildZdLink(botid, chat, uid_type, uid);
+            let direct = false;
+
+            if (sdom !== "X") await loadTutorial(botid, sdom);
+
+            // Case: Direct redirect
+            if (sdom === "Y" || count >= 55) {
+                setExpireCookie("count", 55, 4); // expires in 4h
+                window.location = link;
+                return;
+            }
+
+            // Case: Short link assignment
+            if (count >= 2 || sdom === "X" || direct) {
+                assignBtn(link);
+                return;
+            }
+
+            const suid = generateUID();
+            try {
+                setCookies(suid, link);
+            } catch {
+                showError(true);
+                return;
+            }
+
+            // Retry shortener up to 10 times
+            const maxRetries = 10;
+            let slink;
+            for (let retry = 0; retry < maxRetries; retry++) {
+                try {
+                    slink = await makeShort(sdom, sapi, suid);
+                    break;
+                } catch {
+                    console.log(`Retry ${retry + 1} failed`);
+                    if (retry + 1 === maxRetries) {
+                        showError();
+                        return;
+                    }
+                    await delay(100);
+                }
+            }
+
+            console.log(slink);
+            assignBtn(slink);
+        }
+
+        // -------------------- UTILS -------------------- //
+
+        async function loadTutorial(botid, sdom) {
+            let res = await fetch(`https://multibot.zply.fun/get_tutorial?botid=${botid}&sdom=${sdom}`);
+            res = await res.json();
+            if (!res.tutorial) return;
+
+            document.querySelector(".tutorialdiv").style.display = "block";
+            document.querySelector(".player").addEventListener("click", () => playTutorial(res.tutorial));
+        }
+
+        function playTutorial(tutorial) {
+            document.querySelector(".player").style.display = "none";
+            const tutvid = document.querySelector(".tutorialvid");
+            tutvid.src = `https://stream.zply.fun/download/${tutorial.tuthub}/${tutorial.tutmid}/tutorial.mkv`;
+            tutvid.style.display = "block";
+        }
+
+        function decryptUid(text) {
+            return [...text].map(char => {
+                if (!/[a-zA-Z]/.test(char)) return char;
+                const shift = -2;
+                const start = char === char.toUpperCase() ? 65 : 97;
+                return String.fromCharCode((char.charCodeAt(0) - start + shift + 26) % 26 + start);
+            }).join("");
+        }
+
+        function showError(cok = false) {
+            const wrapper = q(".get-link");
+            const error = q(cok ? "cokerror" : "error");
+
+            wrapper.style.animation = "zoomOut 1.5s";
+            const errloc = loc.replace(/^https?:\/\//, "").split("zply.fun").slice(-1)[0].replaceAll("/", "<br>");
+            error.innerHTML += `<br><br><p class='errorloc'>ERROR:<br>${errloc}</p>`;
+
+            setTimeout(() => {
+                wrapper.style.display = "none";
+                error.style.display = "block";
+                error.style.animation = "shakeX 1s";
+            }, 800);
+        }
+
+        function assignBtn(slink) {
+            setTimeout(() => {
+                const btn = q(".get-link");
+                q(".text").style.fontSize = "0px";
+                q(".loader").style.display = "none";
+                Object.assign(q(".text2").style, {
+                    fontSize: "30px",
+                    animation: "fadeInLeft 0.5s"
+                });
+                btn.addEventListener("click", () => (window.location = slink));
+            }, 8000);
+        }
+
+        async function makeShort(sdom, sapi, suid) {
+            const slink = buildShortLink(sdom, sapi, suid);
+            let res = await fetch(slink);
+            if (sdom.includes("shareus")) {
+                return await res.text();
+            }
+            res = await res.json();
+            return res.shortenedUrl;
+        }
+
+        function buildShortLink(sdom, sapi, suid) {
+            const isShareUs = sdom.includes("shareus");
+            const domain = isShareUs ? "api.shareus.in" : sdom;
+            const main = isShareUs ? "easy_api" : "api";
+            const key = isShareUs ? "key" : "api";
+            const linkParam = isShareUs ? "link" : "url";
+            const link = `https://zply.fun/u?=${suid}`;
+
+            return `https://${domain}/${main}?${key}=${sapi}&${linkParam}=${link}`;
+        }
+
+        function buildZdLink(botid, chat, uid_type, uid) {
+            const chat_type = chat === "b" ? "b" : "g";
+            const chatId = chat === "b" ? botid : chat;
+            return `https://zply.fun/m?=${chat_type}${chatId}/${uid_type}/${uid}`;
+        }
+
+        async function getIp() {
+            try {
+                let res = await fetch("https://api.zply.fun/ip");
+                res = await res.json();
+                return res.ip || "111.22.33.44";
+            } catch {
+                return "111.22.33.44";
+            }
+        }
+
+        function parseParams(loc) {
+            const [botid, chat, user, sdom, sapi, uid_type, uid] = loc.split("/").slice(-7);
+            return { botid: parseInt(botid), chat, user, sdom, sapi, uid_type, uid };
+        }
+
+        function q(selector) {
+            return document.querySelector(selector);
+        }
+
+        function setCookies(uid, zlink) {
+            const sdata = zlink.split("?=")[1];
+            const midnight = new Date().setHours(24, 0, 0, 0);
+            const expires = new Date(midnight).toGMTString();
+
+            document.cookie = `uid=${uid}#${sdata}; expires=${expires}; path=/;`;
+            document.cookie = `uid=${uid}#${sdata}; expires=${expires}; domain=zdisk.fun; path=/;`;
+            console.log("Cookies Set:", document.cookie);
+        }
+
+        function getCookies() {
+            return document.cookie.split("; ").reduce((acc, c) => {
+                const [k, v] = c.split("=");
+                acc[k] = v;
+                return acc;
+            }, {});
+        }
+
+        function setExpireCookie(name, value, hours) {
+            const date = new Date();
+            date.setTime(date.getTime() + hours * 3600 * 1000);
+            document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+        }
+
+        function generateUID() {
+            const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            return Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+        }
+
+        function delay(ms) {
+            return new Promise(r => setTimeout(r, ms));
+        }
+    })();
+</script>
+<script>
+(function () {
+    const ua = navigator.userAgent || "";
+    let isTelegram = false;
+
+    if (ua.includes("Android") && typeof window.TelegramWebview !== "undefined") {
+        isTelegram = true;
+    } else if (ua.includes("iPhone") && typeof window.TelegramWebviewProxy !== "undefined" && typeof window.TelegramWebviewProxyProto !== "undefined") {
+        isTelegram = true;
+    } else if (typeof window.TelegramWebview !== "undefined" || typeof window.TelegramWebviewProxy !== "undefined") {
+        isTelegram = true;
+    }
+
+    if (isTelegram) {
+        const currentUrl = window.location.href;
+
+        if (ua.includes("Android")) {
+            // Force open in Chrome via intent
+            const cleanUrl = currentUrl.replace(/^https?:\/\//, "");
+            const intentUrl = `intent://${cleanUrl}#Intent;package=com.android.chrome;scheme=https;end`;
+            window.location.href = intentUrl;
+        } else if (ua.includes("iPhone")) {
+            // Open in Safari
+            setTimeout(() => {
+                window.open(currentUrl, "_blank");
+            }, 800);
+        }
+    }
+})();
+</script>
+
+</html>

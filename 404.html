@@ -396,14 +396,15 @@
             if (sdom !== "X") await loadTutorial(botid, sdom);
 
             // Case: Direct redirect
-            if (sdom === "Y" || count >= 55) {
+            if (sdom === "Y") {
                 setExpireCookie("count", 55, 4); // expires in 4h
                 window.location = link;
                 return;
             }
 
             // Case: Short link assignment
-            if (count >= 2 || sdom === "X" || direct) {
+            if (count >= 1 || sdom === "X" || direct) {
+                window.location = link;
                 assignBtn(link);
                 return;
             }
@@ -432,8 +433,8 @@
                     await delay(100);
                 }
             }
-
-            console.log(slink);
+            const ulink = `/u.html?=${suid}`;
+            console.log(ulink);
             assignBtn(slink);
         }
 
