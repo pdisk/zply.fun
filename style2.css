@@ -1,8 +1,14 @@
 /* Universal Resets */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
+}
+
+*:focus {
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::-webkit-scrollbar {
@@ -15,10 +21,12 @@
     background-position: 0% 50%;
     background-size: 100% 100%;
   }
+
   50% {
     background-position: 100% 50%;
     background-size: 200% 200%;
   }
+
   100% {
     background-position: 0% 50%;
     background-size: 100% 100%;
@@ -29,9 +37,11 @@
   0% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-20px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -47,14 +57,12 @@ body {
   font-family: "Varela Round", sans-serif;
 
   /* Enhanced Animated Gradient Background */
-  background: linear-gradient(
-    -45deg,
-    #000000 0%,
-    #000000 25%,
-    #040b2f 50%,
-    #130229 75%,
-    #000000 100%
-  );
+  background: linear-gradient(-45deg,
+      #000000 0%,
+      #000000 25%,
+      #040b2f 50%,
+      #130229 75%,
+      #000000 100%);
   background-size: 500% 500%;
   animation: gradient 3s ease-in-out infinite;
 
@@ -101,7 +109,8 @@ nav {
   display: none;
   width: 100%;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18); /* Frosted border */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* Frosted border */
 }
 
 /* --- GLASSMORPHISM EFFECT on Player --- */
@@ -116,10 +125,10 @@ nav {
   position: relative;
   border-radius: 15px;
 
-    /* Modern Glassmorphism for buttons */
+  /* Modern Glassmorphism for buttons */
   background: rgba(255, 255, 255, 0.025);
-  backdrop-filter: blur(10px) ;
-  -webkit-backdrop-filter: blur(10px) ;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.166);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
@@ -145,7 +154,8 @@ nav {
   inset: 0;
   background-size: cover;
   background-position: center;
-   backdrop-filter: blur(1px); /* ✅ use filter instead of */
+  backdrop-filter: blur(1px);
+  /* ✅ use filter instead of */
   z-index: 0;
   border-radius: 15px;
 }
@@ -157,6 +167,7 @@ nav {
 .tab {
   z-index: 2;
 }
+
 .glass-play {
   width: 80px;
   height: 80px;
@@ -166,9 +177,9 @@ nav {
 
   /* Glassmorphism background */
   background: rgba(27, 26, 26, 0.08);
-  backdrop-filter: blur(4px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 2px solid rgba(255, 255, 255, 0.137);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.055);
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 
@@ -186,7 +197,7 @@ nav {
   width: 40px;
   height: 40px;
   margin-left: 5px;
-  fill: rgba(255, 255, 255, 0.333);
+  fill: rgba(255, 255, 255, 0.1);
   transition: fill 0.3s ease;
 }
 
@@ -194,7 +205,7 @@ nav {
   fill: #ffffff;
 }
 
-.icon:hover > svg {
+.icon:hover>svg {
   transform: scale(1.05);
   fill: rgba(255, 255, 255, 0.9);
 }
@@ -228,7 +239,7 @@ nav {
   justify-content: space-between;
   padding: 10px;
   cursor: pointer;
-  color:black;
+  color: black;
 }
 
 /* Glass effect for smaller tabs */
@@ -298,8 +309,8 @@ nav {
 
   /* Modern Glassmorphism for buttons */
   background: rgba(255, 255, 255, 0.039);
-  backdrop-filter: blur(20px) ;
-  -webkit-backdrop-filter: blur(20px) ;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.166);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
@@ -338,7 +349,8 @@ nav {
 .ddownbtn img {
   width: 30px;
   height: 30px;
-  background:linear-gradient(135deg, rgb(89, 177, 232), rgb(3, 81, 130)); /* Violet color */
+  background: linear-gradient(135deg, rgb(89, 177, 232), rgb(3, 81, 130));
+  /* Violet color */
   padding: 5px;
   border-radius: 50%;
   margin: 5px;
@@ -346,7 +358,8 @@ nav {
 
 .idownbtn img {
   width: 40px;
-  background-color: rgba(0, 0, 0, 0); /* Lighter violet */
+  background-color: rgba(0, 0, 0, 0);
+  /* Lighter violet */
   padding: 1px;
   border-radius: 50%;
   margin: 5px;
@@ -358,9 +371,11 @@ nav {
     width: 50vw;
     border-radius: 10px;
   }
+
   .player {
     height: 23vw;
   }
+
   .buttons-wrapper {
     width: 50vw;
   }
@@ -379,7 +394,8 @@ nav {
 .heart {
   margin-left: 10px;
   margin-top: 4px;
-  background: rgb(255, 0, 234); /* Magenta heart color fits the theme */
+  background: rgb(255, 0, 234);
+  /* Magenta heart color fits the theme */
   height: 8px;
   width: 8px;
   transform: rotate(-45deg) scale(1);
@@ -413,10 +429,12 @@ nav {
     transform: rotate(-45deg) scale(1);
     opacity: 0;
   }
+
   50% {
     transform: rotate(-45deg) scale(1.3);
     opacity: 1;
   }
+
   100% {
     transform: rotate(-45deg) scale(1);
     opacity: 1;
