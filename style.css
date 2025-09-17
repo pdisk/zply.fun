@@ -1,3 +1,4 @@
+/* Universal Resets */
 * {
     padding: 0;
     margin: 0;
@@ -8,15 +9,28 @@
     width: 0;
 }
 
+/* --- THEME & ANIMATION --- */
+/* 1. Added a moving gradient background for the dark violet theme */
+@keyframes moveBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height to ensure it covers the screen */
     width: 100vw;
-    background-color: rgb(11, 11, 11);
     color: aliceblue;
     font-family: 'Varela Round', sans-serif;
+
+    /* Dark Violet Gradient Background */
+    background: linear-gradient(45deg, #100b20, #0e0716, #0c0314, #0e0129);
+    
+
+    /* Animation for the moving background */
 }
 
 .wrapper {
@@ -43,10 +57,7 @@ nav {
     display: flex;
     align-items: center;
     font-size: 18px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-right: 30px;
+    padding: 10px 30px 10px 15px;
 }
 
 .video-wrapper {
@@ -59,35 +70,38 @@ nav {
 .video-wrapper video {
     display: none;
     width: 100%;
-    border: solid 1px white;
     border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Frosted border */
 }
 
+
+/* --- GLASSMORPHISM EFFECT on Player --- */
+/* 2. Applied glassmorphism to the main player container */
 .player {
     width: 100%;
     height: 200px;
-    border-radius: 10px;
-    display: flex; /* /flex */
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     position: relative;
-    border: solid 1px white;
     border-radius: 10px;
-    background: rgb(84, 61, 113);
-    background: linear-gradient(145deg, rgb(53, 38, 70) 0%, rgb(40, 29, 54) 50%, rgba(42, 21, 66, 1) 100%);
+
+    /* Semi-transparent background */
+    background: rgba(45, 30, 70, 0.25);
+
+    /* Frosted glass blur effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+
+    /* Subtle border and shadow to enhance the effect */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(19, 9, 40, 0.37);
 }
 
+/* This class is no longer needed as the blur is applied directly to .player */
 .background-blur {
-    backdrop-filter: blur(3px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    border: solid 1px white;
-    border-radius: 10px;
+    display: none;
 }
 
 .icon,
@@ -100,7 +114,7 @@ nav {
 .icon>svg {
     width: 90px;
     height: 90px;
-    fill: rgba(0, 0, 0, 0.522);
+    fill: rgba(231, 223, 255, 0.7); /* Lighter fill to match the theme */
 }
 
 #IconChangeColor {
@@ -129,19 +143,25 @@ nav {
     cursor: pointer;
 }
 
+/* Glass effect for smaller tabs */
+.tab,
 .tab-down {
-    margin-top: -9px;
     padding: 7px;
     padding-right: 10px;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.502);
+    background-color: rgba(0, 0, 0, 0.3); /* Darker transparent background */
     color: #ffffff;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
     cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-down {
+    margin-top: -9px;
 }
 
 .top svg {
@@ -150,16 +170,6 @@ nav {
     fill: #fff;
     margin-left: 6px;
     margin-right: 5px;
-}
-
-.tab {
-    padding: 7px 7px;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.502);
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
 }
 
 .buttons-wrapper {
@@ -172,9 +182,10 @@ nav {
     display: flex;
     justify-content: space-around;
     margin: 5px;
-
 }
 
+/* --- GLASSMORPHISM EFFECT on Buttons --- */
+/* 3. Applied glassmorphism to the buttons and updated hover effect */
 .btn {
     display: flex;
     justify-content: center;
@@ -182,19 +193,24 @@ nav {
     white-space: nowrap;
     text-align: center;
     padding: 10px;
-    border: solid 1px #BB86FC;
     width: 100%;
     margin: 5px;
     margin-top: 10px;
     border-radius: 10px;
-    animation: fadeIn;
-    animation-duration: 2s;
+    transition: background 0.3s ease, border 0.3s ease; /* Smooth transition */
+    cursor: pointer;
 
-    &:hover {
-        background-image: conic-gradient(from var(--border-angle), rgb(37, 20, 53), rgb(4, 4, 6) 50%, rgb(38, 21, 55)), conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-        background-color: #040207;
-        border: solid 1px #ffffff;
-    }
+    /* Glassmorphism styles */
+    background: rgba(187, 134, 252, 0.15); /* Semi-transparent accent color */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+.btn:hover {
+    /* Brighter background and border on hover */
+    background: rgba(187, 134, 252, 0.3);
+    border: 1px solid rgba(187, 134, 252, 0.5);
 }
 
 .ddownbtn {
@@ -211,62 +227,39 @@ nav {
     padding: 10px;
 }
 
-
-
+/* Themed icon backgrounds */
 .ddownbtn svg {
     width: 28px;
-    background-color: rgb(67, 102, 216);
+    background-color: rgb(82, 140, 235); /* Violet color */
     padding: 5px;
     border-radius: 50%;
     margin: 5px;
 }
 
 .idownbtn img {
-    width: 28px;
-    background-color: #0c84c1;
-    padding: 2px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0); /* Lighter violet */
+    padding: 5px;
     border-radius: 50%;
     margin: 5px;
 }
 
+/* Responsive Design Adjustments */
 @media(min-width:900px) {
-    body{
-    height: 100%;
-    }
+    
     .video-wrapper {
         width: 50vw;
         border-radius: 10px;
     }
-
     .player {
         height: 23vw;
     }
-
     .buttons-wrapper {
         width: 50vw;
     }
 }
 
-@keyframes bg-spin {
-    to {
-        --border-angle: 1turn;
-    }
-}
-
-.btn {
-    background-image: conic-gradient(from var(--border-angle), #213, #112 50%, #213), conic-gradient(from var(--border-angle), transparent 20%, #08f, #f03);
-    background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)), cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-
-}
-
-@property --border-angle {
-    syntax: "<angle>";
-    inherits: true;
-    initial-value: 0turn;
-}
-
+/* --- Animations & Effects --- */
 .support-wrapper {
     text-align: center;
     margin-top: 30px;
@@ -279,41 +272,31 @@ nav {
 .heart {
     margin-left: 10px;
     margin-top: 4px;
-    background: rgb(255, 0, 234);
+    background: rgb(255, 0, 234); /* Magenta heart color fits the theme */
     height: 8px;
     width: 8px;
-    /* Animation */
     transform: rotate(-45deg) scale(1);
     animation: pulser 2s linear infinite;
 }
 
-
 .heart::after {
-    /* background:blue; */
     background: inherit;
     border-radius: 50%;
-    /* To make circle */
     content: '';
     position: absolute;
-    /* top: -100px;*/
     top: -50%;
-    /* Inherit properties of parent */
-    /* left: -100px; */
     left: 0;
     height: 8px;
     width: 8px;
 }
 
 .heart::before {
-    /*  background:green; */
     background: inherit;
     border-radius: 50%;
-    /* To make circle */
     content: '';
     position: absolute;
     top: 0;
     right: -50%;
-    /* Inherit properties of parent */
     height: 8px;
     width: 8px;
 }
@@ -323,32 +306,10 @@ nav {
         transform: rotate(-45deg) scale(1);
         opacity: 0;
     }
-
-    /*
-    10% {
-        transform: rotate(-45deg) scale(1.3);
-    }
-    20% {
-        transform: rotate(-45deg) scale(0.9);
-    }
-    30% {
-        transform: rotate(-45deg) scale(1.2);
-    }
-    40% {
-        transform: rotate(-45deg) scale(0.9);
-    }*/
     50% {
         transform: rotate(-45deg) scale(1.3);
         opacity: 1;
     }
-
-    /*
-    60% {
-        transform: rotate(-45deg) scale(0.95);
-    }
-    70% {
-        transform: rotate(-45deg) scale(1);
-    } */
     100% {
         transform: rotate(-45deg) scale(1);
         opacity: 1;
