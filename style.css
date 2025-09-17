@@ -1,326 +1,433 @@
 /* Universal Resets */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
+  width: 0;
 }
 
 /* --- THEME & ANIMATION --- */
-/* 1. Added a moving gradient background for the dark violet theme */
-@keyframes moveBg {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+    background-size: 100% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+    background-size: 200% 200%;
+  }
+  100% {
+    background-position: 0% 50%;
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: 100vh; /* Use min-height to ensure it covers the screen */
-    width: 100vw;
-    color: aliceblue;
-    font-family: 'Varela Round', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100vh;
+  width: 100vw;
+  color: aliceblue;
+  font-family: "Varela Round", sans-serif;
 
-    /* Dark Violet Gradient Background */
-    background: linear-gradient(45deg, #100b20, #0e0716, #0c0314, #0e0129);
-    
+  /* Enhanced Animated Gradient Background */
+  background: linear-gradient(
+    -45deg,
+    #000000 0%,
+    #000000 25%,
+    #040b2f 50%,
+    #130229 75%,
+    #000000 100%
+  );
+  background-size: 500% 500%;
+  animation: gradient 3s ease-in-out infinite;
 
-    /* Animation for the moving background */
+  /* Add some ambient particles */
+  position: relative;
+  overflow-x: hidden;
 }
 
 .wrapper {
-    overflow-x: hidden;
-    animation: fadeIn;
-    animation-duration: 1s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 10px;
-    padding-top: 20px;
+  overflow-x: hidden;
+  animation: fadeIn;
+  animation-duration: 1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  padding-top: 20px;
 }
 
 nav {
-    animation: pulse;
-    animation-duration: 3s;
-    width: 100vw;
-    height: 40px;
-    color: #fff;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    padding: 10px 30px 10px 15px;
+  animation: pulse;
+  animation-duration: 3s;
+  width: 100vw;
+  height: 40px;
+  color: #fff;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 10px 30px 10px 15px;
 }
 
 .video-wrapper {
-    width: 95vw;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    animation-duration: .5s;
+  width: 95vw;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  animation-duration: 0.5s;
 }
 
 .video-wrapper video {
-    display: none;
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Frosted border */
+  display: none;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Frosted border */
 }
-
 
 /* --- GLASSMORPHISM EFFECT on Player --- */
 /* 2. Applied glassmorphism to the main player container */
 .player {
-    width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 15px;
 
-    /* Semi-transparent background */
-    background: rgba(45, 30, 70, 0.25);
+    /* Modern Glassmorphism for buttons */
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(10px) ;
+  -webkit-backdrop-filter: blur(10px) ;
+  border: 1px solid rgba(255, 255, 255, 0.166);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 
-    /* Frosted glass blur effect */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+  /* Improved transitions */
+  transition: all 0.3s ease-in-out;
 
-    /* Subtle border and shadow to enhance the effect */
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(19, 9, 40, 0.37);
+  /* Modern typography */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+}
+
+.player:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 /* This class is no longer needed as the blur is applied directly to .player */
 .background-blur {
-    display: none;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+   backdrop-filter: blur(1px); /* ✅ use filter instead of */
+  z-index: 0;
+  border-radius: 15px;
 }
+
 
 .icon,
 .top,
 .mdisk-link,
 .tab {
-    z-index: 2;
+  z-index: 2;
+}
+.glass-play {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Glassmorphism background */
+  background: rgba(27, 26, 26, 0.08);
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.137);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* Smooth animation */
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
 }
 
-.icon>svg {
-    width: 90px;
-    height: 90px;
-    fill: rgba(231, 223, 255, 0.7); /* Lighter fill to match the theme */
+.glass-play:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.glass-play svg {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  fill: rgba(255, 255, 255, 0.333);
+  transition: fill 0.3s ease;
+}
+
+.glass-play:hover svg {
+  fill: #ffffff;
+}
+
+.icon:hover > svg {
+  transform: scale(1.05);
+  fill: rgba(255, 255, 255, 0.9);
 }
 
 #IconChangeColor {
-    height: 15px;
-    margin-left: 7px;
+  height: 15px;
+  margin-left: 7px;
+  transition: transform 0.3s ease;
+}
+
+#IconChangeColor:hover {
+  transform: scale(1.1);
 }
 
 .info {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
 }
 
 .top {
-    position: absolute;
-    top: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  color:black;
 }
 
 /* Glass effect for smaller tabs */
 .tab,
 .tab-down {
-    padding: 7px;
-    padding-right: 10px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.3); /* Darker transparent background */
-    color: #ffffff;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tab:hover,
+.tab-down:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tab-down {
-    margin-top: -9px;
+  margin-top: -9px;
 }
 
 .top svg {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-    margin-left: 6px;
-    margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  fill: rgba(40, 40, 40, 0.758);
+  margin-left: 6px;
+  margin-right: 5px;
 }
 
 .buttons-wrapper {
-    width: 100vw;
+  width: 100vw;
 }
 
 .playbtn-wrapper,
 .downbtn-wrapper,
 .telebtn-wrapper {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
 }
 
 /* --- GLASSMORPHISM EFFECT on Buttons --- */
 /* 3. Applied glassmorphism to the buttons and updated hover effect */
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    margin: 5px;
-    margin-top: 10px;
-    border-radius: 10px;
-    transition: background 0.3s ease, border 0.3s ease; /* Smooth transition */
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-align: center;
+  padding: 12px;
+  width: 100%;
+  margin: 5px;
+  margin-top: 10px;
+  border-radius: 12px;
 
-    /* Glassmorphism styles */
-    background: rgba(187, 134, 252, 0.15); /* Semi-transparent accent color */
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(187, 134, 252, 0.2);
+  /* Modern Glassmorphism for buttons */
+  background: rgba(255, 255, 255, 0.039);
+  backdrop-filter: blur(20px) ;
+  -webkit-backdrop-filter: blur(20px) ;
+  border: 1px solid rgba(255, 255, 255, 0.166);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  /* Improved transitions */
+  transition: all 0.3s ease-in-out;
+
+  /* Modern typography */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
 }
 
 .btn:hover {
-    /* Brighter background and border on hover */
-    background: rgba(187, 134, 252, 0.3);
-    border: 1px solid rgba(187, 134, 252, 0.5);
+  /* Brighter background and border on hover */
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.083);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .ddownbtn {
-    padding: 6px;
+  padding: 10px;
 }
 
 .idownbtn {
-    font-size: 13px;
-    padding: 0px;
+  font-size: 13px;
+  padding: 0px;
 }
 
 .telebtn {
-    font-size: 18px;
-    padding: 10px;
+  font-size: 18px;
+  padding: 15px;
 }
 
 /* Themed icon backgrounds */
-.ddownbtn svg {
-    width: 28px;
-    background-color: rgb(82, 140, 235); /* Violet color */
-    padding: 5px;
-    border-radius: 50%;
-    margin: 5px;
+.ddownbtn img {
+  width: 30px;
+  height: 30px;
+  background:linear-gradient(135deg, rgb(89, 177, 232), rgb(3, 81, 130)); /* Violet color */
+  padding: 5px;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 .idownbtn img {
-    width: 40px;
-    background-color: rgba(0, 0, 0, 0); /* Lighter violet */
-    padding: 5px;
-    border-radius: 50%;
-    margin: 5px;
+  width: 40px;
+  background-color: rgba(0, 0, 0, 0); /* Lighter violet */
+  padding: 1px;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 /* Responsive Design Adjustments */
-@media(min-width:900px) {
-    
-    .video-wrapper {
-        width: 50vw;
-        border-radius: 10px;
-    }
-    .player {
-        height: 23vw;
-    }
-    .buttons-wrapper {
-        width: 50vw;
-    }
+@media (min-width: 900px) {
+  .video-wrapper {
+    width: 50vw;
+    border-radius: 10px;
+  }
+  .player {
+    height: 23vw;
+  }
+  .buttons-wrapper {
+    width: 50vw;
+  }
 }
 
 /* --- Animations & Effects --- */
 .support-wrapper {
-    text-align: center;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    animation: pulse infinite;
-    animation-duration: 4s;
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  animation: pulse infinite;
+  animation-duration: 4s;
 }
 
 .heart {
-    margin-left: 10px;
-    margin-top: 4px;
-    background: rgb(255, 0, 234); /* Magenta heart color fits the theme */
-    height: 8px;
-    width: 8px;
-    transform: rotate(-45deg) scale(1);
-    animation: pulser 2s linear infinite;
+  margin-left: 10px;
+  margin-top: 4px;
+  background: rgb(255, 0, 234); /* Magenta heart color fits the theme */
+  height: 8px;
+  width: 8px;
+  transform: rotate(-45deg) scale(1);
+  animation: pulser 2s linear infinite;
 }
 
 .heart::after {
-    background: inherit;
-    border-radius: 50%;
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: 0;
-    height: 8px;
-    width: 8px;
+  background: inherit;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 0;
+  height: 8px;
+  width: 8px;
 }
 
 .heart::before {
-    background: inherit;
-    border-radius: 50%;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -50%;
-    height: 8px;
-    width: 8px;
+  background: inherit;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50%;
+  height: 8px;
+  width: 8px;
 }
 
 @keyframes pulser {
-    0% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 0;
-    }
-    50% {
-        transform: rotate(-45deg) scale(1.3);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 1;
-    }
+  0% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
 }
 
 .disclaimer-wrapper {
-    display: block;
-    font-size: 12px;
-    color: #ffffff69;
-    text-align: center;
-    height: fit-content;
-    padding: 20px;
+  display: block;
+  font-size: 12px;
+  color: #ffffff69;
+  text-align: center;
+  height: fit-content;
+  padding: 20px;
 }
